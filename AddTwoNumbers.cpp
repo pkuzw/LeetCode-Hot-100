@@ -1,48 +1,50 @@
 //
 // Created by zhaowei01 on 2021/1/31.
+// Modified by zhaowei01 on 2021/2/1.
 //
 
 #include "AddTwoNumbers.h"
 
 ListNode* AddTwoNumbers::addTwoNumbers(ListNode* l1, ListNode* l2) {
-    ListNode* p1 = l1, *p2 = l2;
+    ListNode *head1 = l1;
+    ListNode *n1 = l1, *n2 = l2;
+    ListNode *prev1 = l1, *prev2 = l2;
     int forward_digit = 0;
-    vector<ListNode*> result_vec;
-    while (p1 && p2) {
-        int t = p1->val + p2->val + forward_digit;
-        if (t >= 10) {
+    while (n1 && n2) {
+        n1->val = n1->val + n2->val + forward_digit;
+        if (n1->val >= 10) {
+            n1->val %= 10;
             forward_digit = 1;
-            t %= 10;
         } else {
             forward_digit = 0;
         }
-        ListNode* result_digit = new ListNode(t);
-        result_vec.push_back(result_digit);
-        p1 = p1->next;
-        p2 = p2->next;
+        prev1 = n1;
+        prev2 = n2;
+        n1 = n1->next;
+        n2 = n2->next;
     }
-    ListNode* p = p1;
-    if (p1 == nullptr) {
-        p = p2;
+    ListNode* p_rest = n1;
+    if (n1) {
+        p_rest = n1;
     }
-    while (p) {
-        int t = p->val + forward_digit;
-        if (t >= 10) {
+    if (n2){
+        p_rest = n2;
+        prev1->next = n2;
+    }
+    while (p_rest) {
+        p_rest->val = p_rest->val + forward_digit;
+        if (p_rest->val >= 10) {
+            p_rest->val %= 10;
             forward_digit = 1;
-            t %= 10;
         } else {
             forward_digit = 0;
         }
-        ListNode* result_digit = new ListNode(t);
-        result_vec.push_back(result_digit);
-        p = p->next;
+        prev1 = p_rest;
+        p_rest = p_rest->next;
     }
     if (forward_digit == 1) {
-        ListNode* add_new_digit = new ListNode(1);
-        result_vec.push_back(add_new_digit);
+        ListNode* result_tail = new ListNode(1);
+        prev1->next = result_tail;
     }
-    for (auto i = result_vec.begin(); i != result_vec.end() - 1; ++i) {
-        (*i)->next = *(i+1);
-    }
-    return result_vec.front();
+    return head1;
 }
