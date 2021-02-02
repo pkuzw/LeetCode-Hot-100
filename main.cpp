@@ -1,16 +1,13 @@
 #include <iostream>
-#include <vector>
 
-#include <iostream>
+#include "LengthOfLongestSubstring.h"
 
-#include "AddTwoNumbers.h"
 using namespace std;
 
 int main() {
-    AddTwoNumbers atn;
-    ListNode l1_2(9); // l1: 9->9->9; l2: 1
-    ListNode l1_1(9, &l1_2);
-    ListNode l1(9, &l1_1), l2(1);
-    ListNode* result = atn.addTwoNumbers(&l1, &l2);
+    LengthOfLongestSubstring lls;
+    string s = "helloworld";
+    int result  = lls.lengthOfLongestSubstring(s);
+    cout << result << endl;
     return 0;
 }
