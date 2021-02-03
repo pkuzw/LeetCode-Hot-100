@@ -1,12 +1,11 @@
 #include <iostream>
-#include "FindMedianSortedArray.h"
+#include "LongestPalindrome.h"
 using namespace std;
 
 int main() {
-    vector<int> nums1 = {1, 2, 3, 7, 8, 9};
-    vector<int> nums2 = {4, 5, 6};
-    FindMedianSortedArray fms;
-    double result = fms.findMedianSortedArrays(nums1, nums2);
-    cout << "median number of two sorted array: " << result << endl;
+    string s = "dabccbadefgagfedabccbadjsl";
+    LongestPalindrome lsp;
+    string result = lsp.longestPalindrome(s);
+    cout << "longest palindrome substring: " << result << endl;
     return 0;
 }
