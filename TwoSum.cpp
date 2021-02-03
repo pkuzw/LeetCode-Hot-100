@@ -1,5 +1,5 @@
 //
-// Created by zhaowei01 on 2021/1/31.
+// Created by wayne on 2021/2/4.
 //
 
 #include "TwoSum.h"
@@ -17,4 +17,3 @@ vector<int> TwoSum::twoSum(vector<int>& nums, int target) {
     }
     return result;
 }
-

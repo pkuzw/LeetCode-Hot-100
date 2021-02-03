@@ -12,8 +12,6 @@ using namespace std;
 class TwoSum {
 public:
     vector<int> twoSum(vector<int>& nums, int target);
-
 };
-
 
 #endif //LEETCODE_HOT_100_TWOSUM_H
