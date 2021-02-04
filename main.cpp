@@ -1,11 +1,12 @@
 #include <iostream>
-#include "LongestPalindrome.h"
+#include "RegularExpressionMatch.h"
 using namespace std;
 
 int main() {
-    string s = "dabccbadefgagfedabccbadjsl";
-    LongestPalindrome lsp;
-    string result = lsp.longestPalindrome(s);
-    cout << "longest palindrome substring: " << result << endl;
+    string s = "ab";
+    string p = ".*c";
+    RegularExpressionMatch rem;
+    bool result = rem.isMatch(s, p);
+    cout << result << endl;
     return 0;
 }

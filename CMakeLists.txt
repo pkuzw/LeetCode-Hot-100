@@ -8,4 +8,5 @@ add_executable(LeetCode_Hot_100 main.cpp
         AddTwoNumbers.cpp AddTwoNumbers.h
         LengthOfLongestSubstring.cpp LengthOfLongestSubstring.h
         FindMedianSortedArray.cpp FindMedianSortedArray.h
-        LongestPalindrome.cpp LongestPalindrome.h)
+        LongestPalindrome.cpp LongestPalindrome.h
+        RegularExpressionMatch.cpp RegularExpressionMatch.h)
