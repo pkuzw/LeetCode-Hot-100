@@ -2,48 +2,41 @@
 // Created by wayne on 2021/2/5.
 //
 
+#include <vector>
 #include "RegularExpressionMatch.h"
 
+using namespace std;
+
 bool RegularExpressionMatch::isMatch(string s, string p) {
-    if (s.empty() && !p.empty()) {
-        return false;
-    }
-    decltype(p.size()) i = 0, j = 0;
-    while (j != s.size() || i != p.size()) {
-        if (i < p.size() && s[j] == p[i]) {
-            ++i;
-            ++j;
-            continue;
-        } else {
-            if (i >= p.size()) {
-                return false;
-            }
-            if (p[i] == '.') {
-                ++i;
-                ++j;
-                continue;
-            }
-            if (p[i] == '*' && i >= 1) {
-                if ((j < s.size() && p[i-1] == s[j]) || p[i-1] == '.') {
-                    ++j;
-                    continue;
-                } else {
-                    ++i;
-                    if ((j < s.size() && p[i] == s[j]) || p[i] == '.') {
-                        ++i;
-                        ++j;
-                        continue;
-                    } else {
-                        return false;
-                    }
-                }
-            }
-            if (i + 1 < p.size() && p[i+1] == '*') {
-                i += 2;
-                continue;
-            }
+    int m = s.size();
+    int n = p.size();
+
+    auto matches = [&](int i, int j) {
+        if (i == 0) {
             return false;
         }
+        if (p[j - 1] == '.') {
+            return true;
+        }
+        return s[i - 1] == p[j - 1];
+    };
+
+    vector<vector<int>> f(m + 1, vector<int>(n + 1));
+    f[0][0] = true;
+    for (int i = 0; i <= m; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            if (p[j - 1] == '*') {
+                f[i][j] |= f[i][j - 2];
+                if (matches(i, j - 1)) {
+                    f[i][j] |= f[i - 1][j];
+                }
+            }
+            else {
+                if (matches(i, j)) {
+                    f[i][j] |= f[i - 1][j - 1];
+                }
+            }
+        }
     }
-    return true;
+    return f[m][n];
 }

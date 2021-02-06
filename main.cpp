@@ -1,11 +1,11 @@
 #include <iostream>
-#include "ContainerWithMostWater.h"
+#include "RegularExpressionMatch.h"
 using namespace std;
 
 int main() {
-    vector<int> height = {1,8,6,2,5,4,8,3,7};
-    ContainerWithMostWater cwm;
-    int max_area = cwm.maxArea(height);
-    cout << "max_area: " << max_area << endl;
+    string s = "aab", p = "a*b*c";
+    RegularExpressionMatch rem;
+    bool is_match = rem.isMatch(s, p);
+    cout << "is match: " << is_match << endl;
     return 0;
 }
