@@ -1,11 +1,17 @@
 #include <iostream>
-#include "RegularExpressionMatch.h"
+#include "ThreeSum.h"
 using namespace std;
 
 int main() {
-    string s = "aab", p = "a*b*c";
-    RegularExpressionMatch rem;
-    bool is_match = rem.isMatch(s, p);
-    cout << "is match: " << is_match << endl;
+    vector<int> nums = {-6, -1, -1, 0, 1, 2, 3, 3, 4};
+    ThreeSum ts;
+    auto rslt = ts.threeSum(nums);
+    for (auto &i : rslt) {
+        for (auto &j : i) {
+            cout << j << ' ';
+        }
+        cout << endl;
+    }
+
     return 0;
 }
