@@ -1,10 +1,11 @@
 //
-// Created by zhaowei01 on 2021/2/7.
+// Created by wayne on 2021/2/7.
 //
 
 #ifndef LEETCODE_HOT_100_THREESUM_H
 #define LEETCODE_HOT_100_THREESUM_H
 
+#include <algorithm>
 #include <vector>
 
 using namespace std;

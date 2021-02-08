@@ -1,17 +1,13 @@
 #include <iostream>
-#include "ThreeSum.h"
+#include "LetterCombinationOfPhoneNumber.h"
 using namespace std;
 
 int main() {
-    vector<int> nums = {-6, -1, -1, 0, 1, 2, 3, 3, 4};
-    ThreeSum ts;
-    auto rslt = ts.threeSum(nums);
-    for (auto &i : rslt) {
-        for (auto &j : i) {
-            cout << j << ' ';
-        }
-        cout << endl;
+    LetterCombinationOfPhoneNumber lcp;
+    string digits = "222";
+    auto result = lcp.letterCombinations(digits);
+    for (auto &i : result) {
+        cout << i << endl;
     }
-
     return 0;
 }
