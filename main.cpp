@@ -1,13 +1,11 @@
 #include <iostream>
-#include "LetterCombinationOfPhoneNumber.h"
+#include "ValidParentheses.h"
 using namespace std;
 
 int main() {
-    LetterCombinationOfPhoneNumber lcp;
-    string digits = "222";
-    auto result = lcp.letterCombinations(digits);
-    for (auto &i : result) {
-        cout << i << endl;
-    }
+    ValidParentheses vp;
+    string s = "[]{}([][[[(){}]]])";
+    auto result = vp.isValid(s);
+    cout << result << endl;
     return 0;
 }
