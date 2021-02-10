@@ -12,32 +12,49 @@ ListNode* MergeTwoSortedLists::mergeTwoLists(ListNode* l1, ListNode* l2) {
         return l1;
     }
     ListNode* iter1 = l1, *iter2 = l2;
-    ListNode* iter1_nxt = l1->next, *iter2_nxt = l2->next;
-    while (iter1->next && iter2->next) {
-        if (iter1_nxt->val < iter2_nxt->val) {
-            if (iter2->val < iter1->val) {
-                iter2->next = iter1;
+    ListNode* iter = iter1;
+    bool tag = false; // false: iter is on list 1; true: iter is on list 2.
+    if (l1->val <= l2->val) {
+        iter = iter1;
+        tag = false;
+    } else {
+        iter = iter2;
+        tag = true;
+    }
+    while (iter->next) {
+        if (tag == false) {
+            if (iter->val == iter->next->val) {
+                iter = iter->next;
+                iter1 = iter1->next;
+            } else {
+                if (iter->next->val > iter2->val) {
+                    iter1 = iter->next;
+                    iter->next = iter2;
+                    iter = iter->next;
+                    tag = !tag;
+                } else {
+                    iter = iter->next;
+                    iter1 = iter1->next;
+                }
             }
-            iter2 = iter2_nxt;
-            iter1 = iter1->next;
-            iter1_nxt = iter1->next;
-        } else {
-            if (iter1->val < iter2->val) {
-                iter1->next = iter2;
+        }
+        else {
+            if (iter->val == iter->next->val) {
+                iter = iter->next;
+                iter2 = iter2->next;
+            } else {
+                if (iter->next->val > iter1->val) {
+                    iter2 = iter->next;
+                    iter->next = iter1;
+                    iter = iter->next;
+                    tag = !tag;
+                } else {
+                    iter = iter->next;
+                    iter2 = iter2->next;
+                }
             }
-            iter1 = iter1_nxt;
-            iter2 = iter2->next;
-            iter2_nxt = iter2->next;
-
         }
     }
-    if (iter1->next && iter2) {
-        iter2->next = iter1;
-        return l1->val < l2->val ? l1 : l2;
-    }
-    if (iter2->next && iter1) {
-        iter1->next = iter2;
-        return l1->val < l2->val ? l1 : l2;
-    }
-    return l1->val < l2->val ? l1 : l2;
+    iter->next = tag ? iter1 : iter2;
+    return l1->val <= l2->val ? l1 : l2;
 }
