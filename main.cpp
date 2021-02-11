@@ -4,7 +4,7 @@ using std::cout;
 using std::endl;
 
 int main() {
-    int n = 4;
+    int n = 0;
     GenerateParenthesis gp;
     vector<string> rslt = gp.generateParenthesis(n);
     for (auto &i : rslt) {
