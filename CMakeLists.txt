@@ -15,4 +15,4 @@ add_executable(LeetCode_Hot_100 main.cpp
         LetterCombinationOfPhoneNumber.cpp LetterCombinationOfPhoneNumber.h
         RemoveNthNodeFromEndList.cpp RemoveNthNodeFromEndList.h
         ValidParentheses.cpp ValidParentheses.h
-        MergeTwoSortedLists.cpp MergeTwoSortedLists.h GenerateParenthesis.cpp GenerateParenthesis.h)
+        MergeTwoSortedLists.cpp MergeTwoSortedLists.h GenerateParenthesis.cpp GenerateParenthesis.h MergeKSortedLists.cpp MergeKSortedLists.h)
