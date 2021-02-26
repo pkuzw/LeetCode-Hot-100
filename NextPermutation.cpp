@@ -17,10 +17,17 @@ void NextPermutation::nextPermutation(vector<int>& nums) {
         }
         --i;
     }
+    i = nums.size() - 1;
+    while (i > j) {
+        if (nums[i] > nums[j]) {
+            swap(nums[i], nums[j]);
+            break;
+        }
+        --i;
+    }
     if (i == 0) {
         reverse(nums.begin(), nums.end());
     } else {
-        swap(nums[i], nums[j]);
-        reverse(nums.begin() + i, nums.end());
+        reverse(nums.begin() + j + 1, nums.end());
     }
 }

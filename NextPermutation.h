@@ -11,7 +11,6 @@ using namespace std;
 class NextPermutation {
 public:
     void nextPermutation(vector<int>& nums);
-
 };
 
 
