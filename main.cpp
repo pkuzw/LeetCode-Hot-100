@@ -1,14 +1,11 @@
 #include <iostream>
-#include "NextPermutation.h"
+#include "LongestValidParentheses.h"
 using std::cout;
 using std::endl;
 
 int main() {
-    vector<int> ivec = {1,4,4};
-    NextPermutation np;
-    np.nextPermutation(ivec);
-    for (auto &k : ivec) {
-        cout << k << ' ';
-    }
+    LongestValidParentheses lvp;
+    string s = "(()";
+    cout << lvp.longestValidParentheses(s);
     return 0;
 }

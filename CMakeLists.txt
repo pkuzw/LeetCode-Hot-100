@@ -18,4 +18,5 @@ add_executable(LeetCode_Hot_100 main.cpp
         MergeTwoSortedLists.cpp MergeTwoSortedLists.h
         GenerateParenthesis.cpp GenerateParenthesis.h
         MergeKSortedLists.cpp MergeKSortedLists.h
-        NextPermutation.cpp NextPermutation.h)
+        NextPermutation.cpp NextPermutation.h
+        LongestValidParentheses.cpp LongestValidParentheses.h)
