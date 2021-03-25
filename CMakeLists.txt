@@ -19,4 +19,4 @@ add_executable(LeetCode_Hot_100 main.cpp
         GenerateParenthesis.cpp GenerateParenthesis.h
         MergeKSortedLists.cpp MergeKSortedLists.h
         NextPermutation.cpp NextPermutation.h
-        LongestValidParentheses.cpp LongestValidParentheses.h SearchRotatedSortedArray.cpp SearchRotatedSortedArray.h)
+        LongestValidParentheses.cpp LongestValidParentheses.h SearchRotatedSortedArray.cpp SearchRotatedSortedArray.h FindRangeOfTargetInSortedArray.cpp FindRangeOfTargetInSortedArray.h)
