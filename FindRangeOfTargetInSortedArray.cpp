@@ -5,7 +5,7 @@
 #include "FindRangeOfTargetInSortedArray.h"
 
 int FindRangeOfTargetInSortedArray::binarySearch(vector<int>& nums, int target, bool left_bound) {
-    size_t left = 0, right = nums.size() - 1, rslt = nums.size();
+    int left = 0, right = nums.size() - 1, rslt = nums.size();
     while (left <= right) {
         auto mid = (left + right) / 2;
         if (target < nums[mid] || (left_bound && target <= nums[mid])) {
