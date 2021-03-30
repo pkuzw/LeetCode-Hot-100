@@ -13,7 +13,7 @@ public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target);
 
 private:
-    void getCombination(vector<int>& combination, const vector<int>& candidates, int target);
+    void getCombination(vector<vector<int>>& combinations, vector<int>& combination, const vector<int>& candidates, int target);
 };
 
 
