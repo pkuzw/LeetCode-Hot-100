@@ -7,15 +7,19 @@
 #include "CombinationSum.h"
 
 void CombinationSum::getCombination(vector<vector<int>>& combinations, vector<int>& combination, const vector<int> &candidates, int target) {
-    if (target < candidates[0]) {
+    if (target == 0) {
+        combinations.push_back(combination);
         return;
     }
     for (auto& k : candidates) {
         if (target >= k) {
             combination.push_back(k);
             getCombination(combinations, combination, candidates, target - k);
-            combinations.push_back(combination);
-            combination.clear();
+            combination.pop_back();
+            continue;
+        }
+        else {
+            return;
         }
     }
 }
