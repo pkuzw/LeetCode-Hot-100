@@ -6,15 +6,19 @@
 
 #include "CombinationSum.h"
 
-void CombinationSum::getCombination(vector<vector<int>>& combinations, vector<int>& combination, const vector<int> &candidates, int target) {
+void CombinationSum::getCombination(vector<vector<int>>& combinations,
+                                    vector<int>& combination,
+                                    const vector<int> &candidates,
+                                    int target,
+                                    size_t& index) {
     if (target == 0) {
         combinations.push_back(combination);
         return;
     }
-    for (auto& k : candidates) {
-        if (target >= k) {
-            combination.push_back(k);
-            getCombination(combinations, combination, candidates, target - k);
+    for (size_t i = index; i != candidates.size(); ++i) {
+        if (target >= candidates[i]) {
+            combination.push_back(candidates[i]);
+            getCombination(combinations, combination, candidates, target - candidates[i], i);
             combination.pop_back();
             continue;
         }
@@ -28,7 +32,8 @@ vector<vector<int>> CombinationSum::combinationSum(vector<int>& candidates, int 
     std::sort(candidates.begin(), candidates.end());
     vector<vector<int>> combinations;
     vector<int> combination;
-    getCombination(combinations, combination, candidates, target);
+    size_t index = 0;
+    getCombination(combinations, combination, candidates, target, index);
     return combinations;
 }
 
