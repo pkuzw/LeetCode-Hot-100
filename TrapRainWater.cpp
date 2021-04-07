@@ -8,7 +8,7 @@
 using std::min;
 
 int TrapRainWater::trap(vector<int> &height) {
-    if (height.size() < 3) {
+    if (height.size() < 3) { //处理边界情况
         return 0;
     }
     const auto& n = height.size();
